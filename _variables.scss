@@ -1,0 +1,59 @@
+$background-Color: lighten(white, 10%);
+$Font: Arial,
+Helvetica,
+sans-serif;
+$primaryColor: blue;
+$primaryFontColor: white;
+$secondaryColor: orange;
+$cardTextColor: red;
+$cardheadingbg: #000;
+@function settingTextColor($color) {
+    @if(lightness($color) > 70) {
+        @return black;
+    }
+    @else {
+        @return white;
+    }
+}
+
+@function settingNewTextColor($color) {
+    @if(lightness($color)< 50) {
+        @return white;
+    }
+    @else {
+        @return black;
+    }
+}
+
+@mixin setBackground($color) {
+    background-color: $color;
+    color: settingTextColor($color);
+}
+
+@mixin setNewBackground($color, $amount) {
+    background-color: lighten($color, $amount);
+    color: settingNewTextColor($color);
+}
+
+$spaceamounts:(1, 2, 3, 4, 5);
+@each $space in $spaceamounts {
+    .my-#{$space} {
+        margin: #{$space}px;
+    }
+    .my-#{$space} {
+        margin: #{$space}px;
+        padding: 5px
+    }
+    .my-#{$space} {
+        margin: #{$space}px;
+        padding: 5px
+    }
+    .my-#{$space} {
+        margin: #{$space}px;
+        padding: 5px
+    }
+    .my-#{$space} {
+        margin: #{$space}px;
+        padding: 5px
+    }
+}
